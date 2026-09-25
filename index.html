@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Куда писать в Неакторе</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+/* Палитра и метрики сняты с интерфейса neaktor.pskgeodor.ru (25.09.2026) */
+:root{
+  --ink:#272B35; --muted:#8A8F99; --line:#E7E7E7; --bg:#FFFFFF; --topbar:#F2F2F2; --side:#F5F5F5;
+  --head:#F9F9F9; --active:#E6EDF6; --link:#4A90E2; --teal:#1EBEA5; --teal-dark:#18A48E;
+  --pink:#D9416C; --dark:#272B35; --warn:#FAC51C; --mark:#FFF1B8;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Open Sans",Arial,sans-serif}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--link);outline-offset:1px}
+
+.topbar{position:sticky;top:0;z-index:10;height:50px;padding-top:env(safe-area-inset-top,0px);background:var(--topbar);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:22px;padding-inline:16px}
+.topbar .home{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);font-size:14px}
+.topbar .home span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--link);color:#fff;font-size:12px}
+.topbar nav{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+.topbar nav a{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;padding-block:15px 13px;border-bottom:2px solid transparent}
+.topbar nav a.on{border-bottom-color:var(--link)}
+.topbar nav a:hover{text-decoration:none;color:var(--link)}
+
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100% - 50px)}
+aside{background:var(--side);border-right:1px solid var(--line);padding-block:16px}
+aside .back{display:block;padding:0 20px 14px;font-size:13px;font-weight:600}
+aside h4{margin:0;padding:6px 20px;font-size:14px;font-weight:600}
+aside ul{list-style:none;margin:0 0 14px;padding:0}
+aside li button{display:flex;width:100%;justify-content:space-between;align-items:center;gap:8px;border:0;background:transparent;text-align:left;font:13px/1.35 "Open Sans",Arial,sans-serif;color:var(--ink);padding:7px 14px 7px 25px;cursor:pointer}
+aside li button:hover{color:var(--link)}
+aside li button.on{background:var(--active);color:var(--link);font-weight:600;font-size:12px}
+aside li .n{font-size:10px;font-weight:600;color:#fff;background:#B3B8C2;border-radius:50px;padding:1px 6px;font-variant-numeric:tabular-nums}
+aside li button.on .n{background:var(--link)}
+aside .note{padding:6px 20px;font-size:12px;color:var(--muted)}
+
+main{padding:22px 30px 40px;min-width:0}
+.head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.tile{width:36px;height:36px;border-radius:3px;background:var(--dark);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:700;letter-spacing:.02em;flex:none}
+.head h1{margin:0;font-size:20px;font-weight:600;line-height:1.25;flex:1;min-width:220px;text-wrap:balance}
+.head h1 span{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:3px;background:var(--teal);color:#fff;font:14px "Open Sans",Arial,sans-serif;border:0;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--teal-dark);text-decoration:none}
+.sub{margin:10px 0 0;color:var(--muted);font-size:13px;max-width:80ch}
+hr.sep{border:0;border-top:1px solid var(--line);margin:18px 0}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search{position:relative;flex:1 1 320px;max-width:460px}
+.search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:#9AA0AA}
+#q{width:100%;height:34px;border:1px solid var(--line);border-radius:3px;padding:0 30px 0 32px;font:14px "Open Sans",Arial,sans-serif;color:var(--ink);background:#fff}
+#q:focus{border-color:var(--link);outline:none}
+#q::-webkit-search-cancel-button{display:none}
+#clear{position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#9AA0AA;font-size:18px;line-height:1;cursor:pointer;padding:4px 6px}
+.total{height:34px;display:inline-flex;align-items:center;padding:0 10px;border:1px solid var(--line);border-radius:3px;font-size:14px;background:#fff;white-space:nowrap}
+.total b{margin-left:4px;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.chips .lbl{font-size:13px;color:var(--muted);margin-right:2px}
+.chip{height:28px;padding:0 10px;border:1px solid var(--line);border-radius:3px;background:var(--head);font:13px "Open Sans",Arial,sans-serif;color:var(--ink);cursor:pointer}
+.chip:hover{border-color:#C9CED6}
+.chip.on{background:var(--active);border-color:var(--link);color:var(--link);font-weight:600}
+
+.tablewrap{margin-top:16px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--head);font-weight:700;font-size:14px;text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap}
+thead th:last-child{border-right:0}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:#FAFBFD}
+tr.grp td{background:var(--side);font-weight:600;font-size:13px;padding:8px 14px}
+tr.grp td span{color:var(--muted);font-weight:400;margin-left:6px}
+td.sit{width:34%}
+td.dest a{font-weight:600}
+td.dest .hint{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+td.pick span{display:inline;background:#EEF4FB;padding:1px 4px;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+td.code{white-space:nowrap;width:110px}
+td.code a{font-size:13px}
+.flag{display:none;margin-top:4px;font-size:11px;font-weight:600;color:#fff;background:var(--warn);padding:0 4px}
+body.review tr.unverified .flag{display:inline-block}
+mark{background:var(--mark);color:inherit;padding:0}
+.empty{padding:22px 14px;color:var(--muted)}
+
+.fallback{margin-top:22px;border:1px solid var(--line);background:var(--head);padding:16px 18px}
+.fallback h3{margin:0 0 6px;font-size:16px;font-weight:600}
+.fallback p{margin:0;color:var(--ink);font-size:13px;max-width:90ch}
+.fallback ol{margin:8px 0 0;padding-left:20px;display:grid;gap:4px;font-size:13px}
+.steps{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;font-size:12px;color:var(--muted)}
+.steps b{color:var(--ink);font-weight:600}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  aside,main{min-width:0}
+  aside{border-right:0;border-bottom:1px solid var(--line);padding-block:10px}
+  aside .back,aside h4,aside .note{display:none}
+  aside ul{display:flex;overflow-x:auto;gap:6px;padding:0 16px;margin:0}
+  aside li button{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:3px;padding:5px 10px}
+  aside li .n{display:none}
+  main{padding:18px 16px 32px}
+  .tablewrap{border:0}
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:auto}
+  tbody tr{border:1px solid var(--line);margin-bottom:8px}
+  tbody td{border:0;padding:4px 12px}
+  td.sit{width:auto;padding-top:10px;font-weight:600}
+  td.code{width:auto;padding-bottom:10px}
+  td.pick:empty{display:none}
+  tr.grp{border:0;margin:14px 0 6px}
+  tr.grp td{background:transparent;padding:0;text-transform:uppercase;font-size:12px;letter-spacing:.04em;color:var(--muted)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="home" href="https://neaktor.pskgeodor.ru/home"><span>N</span>Неактор</a>
+  <nav>
+    <a href="https://neaktor.pskgeodor.ru/home">Мои дела</a>
+    <a class="on" href="#" aria-current="page">Куда писать?</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside>
+    <a class="back" href="https://neaktor.pskgeodor.ru/home">‹ Вернуться в Неактор</a>
+    <h4>Темы</h4>
+    <ul id="cats"></ul>
+    <div class="note">Не нашли тему — <a href="#fallback">что делать</a></div>
+  </aside>
+
+  <main>
+    <div class="head">
+      <div class="tile" aria-hidden="true">?</div>
+      <h1>Куда завести задачу <span>(путеводитель)</span></h1>
+      <a class="btn" href="#fallback">Не нашли тему</a>
+    </div>
+    <p class="sub">Опишите своими словами, что нужно сделать. Напротив ситуации указан блок Неактора и значение, которое нужно выбрать в форме.</p>
+    <hr class="sep">
+
+    <div class="toolbar">
+      <label class="search" for="q">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.4"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <input id="q" type="search" autocomplete="off" placeholder="Например: сломался принтер, отпуск, оплатить счёт">
+        <button id="clear" type="button" aria-label="Очистить поиск" hidden>×</button>
+      </label>
+      <span class="total">Всего:<b id="total"></b></span>
+    </div>
+    <div class="chips" id="chips"><span class="lbl">Часто ищут:</span></div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Что нужно</th><th>Куда завести</th><th>Что выбрать в форме</th><th>Код</th></tr></thead>
+        <tbody id="out"></tbody>
+      </table>
+    </div>
+
+    <div class="fallback" id="fallback">
+      <h3>Не нашли свою тему?</h3>
+      <p>Попробуйте другое слово: «ремонт» вместо «сломалась дверь», «доступ» вместо «не пускает». Если подходящего процесса действительно нет:</p>
+      <ol>
+        <li>Предложение, как сделать лучше, — в <a href="https://neaktor.pskgeodor.ru/projects/IDEI/filters/all" target="_blank" rel="noopener">Идеи и предложения</a>.</li>
+        <li>Разовый вопрос без своего процесса — <a href="https://neaktor.pskgeodor.ru/projects/JLTR/filters/all" target="_blank" rel="noopener">служебной запиской</a>. Если тема есть в списке выше, служебку вернут.</li>
+        <li>Такие вопросы повторяются — подайте <a href="https://neaktor.pskgeodor.ru/projects/PROCESSES/filters/all" target="_blank" rel="noopener">заявку на создание бизнес-процесса</a>.</li>
+      </ol>
+    </div>
+    <div class="steps"><span><b>1.</b> Найдите ситуацию</span><span><b>2.</b> Откройте блок и нажмите «Добавить задачу»</span><span><b>3.</b> Выберите в форме указанное значение</span></div>
+  </main>
+</div>
+
+<script>
+
+const BASE="https://neaktor.pskgeodor.ru";
+/* Процессы: код проекта -> [название, id статьи wiki]. Источник: wiki «Навигатор по процессам в системе», 25.09.2026 */
+const P={
+AKNG:["Заявки в IT отдел","e0161aea"],MATERIAL:["Запрос стоимости материалов","b58050a9"],ZAYAVKAAHO:["Заявка АХО","f7f8ce6a"],
+EVENT:["Выставки","f8838041"],PROCESSES:["Заявка на создание бизнес-процесса","0cb504ff"],PROMO:["Продвижение","185f43d4"],
+PLATEZ:["Платежи","5268712a"],IDEI:["Идеи и предложения","9f41d44d"],ADAPTSOTR:["Адаптация сотрудников","74785d13"],
+OTSROCHKA:["Статистика уволенных сотрудников","5cf2ff7e"],YZKS:["Статистика уволенных сотрудников (второй процесс)","8de021fe"],
+REESTROBEK:["Реестр объектов","77af94c6"],PZ:["Учёт претензий (входящие претензии)","17eb496b"],VQLO:["Акт инвентаризации","81733655"],
+SPRAVKA:["Справочник сотрудников","c48845df"],PLANIROVAN:["Планирование платежей (ПФО)","38a35709"],VBPY:["Согласование премий и бонусов","d5b62047"],
+VKOA:["Реестр платежей","5e82754c"],OTGUL:["Отгулы за ранее отработанное время","bad0aaa8"],OTPYSK:["Отпуска","5ba56b91"],
+WORK:["Сверхурочные работы, в выходные и праздничные дни","d50e387c"],OBUCHENIYE:["Заявка на обучение в HR","26de0dd8"],VAKANT:["Заявка на вакансию","8f2198b6"],
+SVGEO:["Расчёт сварки геомембраны","267d98ea"],JLTR:["Служебные записки","351214ef"],REESTRSIB:["Реестр запросов на расчёт себестоимости","a34f6235"],
+PNO:["Разрешение на отклонение","e7fb7d26"],LAB:["Упрощённая программа испытаний","f5394436"],UDAL:["Работа на удалёнке","52fdfab9"],
+ISP:["Заявка на испытания образцов НСМ","67e5600f"],VIHOD:["Внеурочные выходы","35eb3861"],TQVW:["Заявка на нормирование труда","1f8a77fa"],
+INV:["Инвентаризационная опись основных средств","9df3ce9d"],LOIM:["Совмещение обязанностей","373a3eb7"],FUNKZOBIAZ:["Функционал / должностные","830d1093"],
+GCNS:["Повышение категорий (разрядов)","f82a3f13"],FOTO:["Заявка на фотосессию сотрудников","90876bd0"],KONTROL:["Контроль производства","cf896c4f"],
+RDMO:["Сбор заявок на приобретение канцтоваров","703c70eb"],SMENAOTV:["Смена ответственных за помещение","c64dbaf8"],VREMPER:["Временные переводы персонала","ed12ad05"],
+FOTISH:["Изменение ШР и ФОТ","d1e21648"],DPMW:["Работа в отпуске","71eff9f3"],FNDI:["Договор ГПХ","1a77e144"],GRAFIK:["Заявка о смене графиков работы","3f2543a7"],
+PROSTOY:["Заявка на оформление простоев","d43df620"],BAJT:["Доплата за наставничество","17294619"],GKXS:["Премия за рацпредложение","4dc148d4"],
+PIVM:["КПЭ (производственные подразделения)","b2db9e1e"],TJEK:["Сведения по З/П","34cd0420"],PROIZVOD:["Производственные отчёты","91a59fdb"],
+SMENNYI:["Суточная выработка","e55e8ba2"],OEE:["OEE","1adef536"],PHDZ:["Повестка «Безопасность»","e2abe0cf"],MUCA:["Замечания по ОТ и ТБ","a86ef600"],
+KULTURA:["Культура производства","0568dcb5"],PREMPOL:["Премиальное положение","3a67a0a3"],INVEST:["Инвестпроекты","3bc4fd56"],ERP:["ЕРП Внедрение","13d18152"],
+URTASK:["Задачи юридического отдела","f5675c82"],WCRN:["Входящие запросы","b3eb9012"],CSO:["Исходящие претензии","f76a3bec"],
+CSAG:["Заявка на контрольно-ревизионную проверку","a2afeeb2"],UPBK:["Заявка на стандартизацию","47130e93"],PHLJ:["Рассмотрение рацпредложения","cf595176"],
+OYEF:["Программа развития","05607e76"],REESTRPRO:["Реестр проектов","a52665d0"],SOGLPASP:["Согласование паспорта проекта","52230e82"],
+SOGLTEO:["Согласование ТЭО","7e3d5c2f"],INPRO:["Заявка на инициирование проекта","80055b32"],IDDF:["Оформление брака","401dcb17"],
+GCLT:["Апробация сырья","9c0be5b3"],FORMPPSHI:["Формуляры ППШИ","756fabdf"],SUSE:["SMART-задачи","37c4a013"],AKTKACHEST:["Акты по качеству","7b6913a5"],
+OTCSHET:["Отчётность","67a2381e"],POPR:["Подготовка образцов продукции","9321e3b2"],RAZUKOMPL:["Списание инструментов и разукомплектация","3d96a762"],
+NORMOTIVDC:["Разработка или изменение НД","123cecd8"],PSI:["Программа стендовых испытаний","497ccf45"],SKIAD:["Заявки на склады","019bedf7"],
+FORMULAR:["Создание (изменение) формуляров","7b1adb76"],SOGLDOC:["Согласование документов","17027d9c"],IXMM:["Согласование бюджетов","51d776f9"]
+};
+const CATS=[
+["it","Компьютер, связь, доступы"],["design","Макеты, печать, продвижение"],["aho","Ремонт, помещения, хозяйство"],
+["money","Оплата и бюджеты"],["time","Рабочее время и отпуск"],["staff","Персонал и оплата труда"],
+["sales","Продажи и расчёты"],["prod","Производство"],["quality","Качество, испытания, НД"],
+["safety","Охрана труда и порядок"],["legal","Юристы и претензии"],["dev","Идеи, проекты, процессы"]
+];
+/* Ситуации: [категория, что нужно, код блока, что выбрать в форме, синонимы для поиска, подсказка, проверено(1)/по названию(0)] */
+const S=[
+["it","Установить программу","AKNG","Тип задачи — «Установить программу»","установка софт по офис компас 1с ворд эксель автокад лицензия","",1],
+["it","Программа не работает или выдаёт ошибку","AKNG","Тип задачи — «Неисправна программа»","ошибка сбой зависает глючит вылетает не запускается","",1],
+["it","Не могу войти: пароль, учётная запись, блокировка","AKNG","Тип задачи — «Проблемы с доступом»","пароль логин учетка вход заблокировали не пускает забыл","",1],
+["it","Нужен доступ к папке, системе или ЕРП","AKNG","Тип задачи — «Открыть доступ»","права доступ папка диск w общий ресурс ерп 1с учетная запись новому","Для папки на диске W укажите права: «Редактор» или «Чтение».",1],
+["it","Не работает компьютер, принтер, телефон, интернет","AKNG","Тип задачи — «Не работает оборудование»","сломался сломалась поломка принтер мфу сканер монитор мышь клавиатура интернет wifi вайфай телефон ip-телефония не печатает","",1],
+["it","Купить компьютер, монитор, комплектующие или ПО","AKNG","Тип задачи — «Закупка компьютера, комплектующих и ПО»","покупка закупка ноутбук пк монитор картридж комплектующие мышь флешка рация","Срок обработки 10–14 дней.",1],
+["it","Подготовить рабочее место для нового сотрудника","AKNG","Тип задачи — «Закупка компьютера, комплектующих и ПО»","новый сотрудник новичок выход на работу рабочее место учетная запись","Подавайте не позже чем за 14 дней до выхода сотрудника.",1],
+["it","Установить или подключить оборудование","AKNG","Тип задачи — «Установка оборудования»","подключить установить телефон внутренний номер камера видеокамера роутер wifi сеть кабель","",1],
+["it","Рабочая SIM-карта, мобильная связь","AKNG","В заявке заполните блок «Для SIM-карты»","сим симка сим-карта мобильная связь номер телефона","",1],
+["it","Доработать процесс, поле или отчёт в Неакторе; добавить сотрудника в Неактор","AKNG","Тип задачи — «Доработка\\Изменение процесса в Неакторе»","неактор поле отчет автоматизация доработка изменить добавить пользователя","Новый процесс целиком заказывается через «Заявку на создание бизнес-процесса».",1],
+["design","Макет, баннер, листовка, этикетка, табличка, печать","AKNG","Тип задачи — «Услуги дизайнера, полиграфия»","дизайн дизайнер макет баннер листовка плакат этикетка табличка визитка печать полиграфия ламинирование","",1],
+["design","Презентация или оформление мероприятия","AKNG","Тип задачи — «Создание презентаций и мероприятий»","презентация слайды мероприятие оформление","",1],
+["design","Дизайн электронного курса для Teachbase","AKNG","Тип задачи — «Teachbase»","курс обучение электронный teachbase тичбейс","",1],
+["design","Печатные и электронные материалы о продукции","PROMO","","каталог буклет брошюра листовка продукт продукция материалы для клиентов","",1],
+["design","Публикация в соцсетях","PROMO","","соцсети пост вк телеграм max публикация новость","",1],
+["design","Выставка: подготовка, анализ, отчёт","EVENT","","выставка стенд конгресс форум экспо отчет по выставке","",1],
+["design","Фотосессия сотрудников","FOTO","","фото фотограф фотосъемка портрет","",1],
+
+["aho","Мелкий ремонт, обслуживание здания и помещений","ZAYAVKAAHO","","ремонт сломалась дверь замок окно сантехника кран течет свет лампочка розетка мебель стул уборка кабинет","Заявка уходит в ремонтно-техническую службу (РТС).",1],
+["aho","Канцтовары","RDMO","","канцелярия ручки бумага папки скрепки","",1],
+["aho","Сменить ответственного за помещение","SMENAOTV","","помещение кабинет ответственный","",1],
+["aho","Акт инвентаризации","VQLO","","инвентаризация пересчет остатки","",1],
+["aho","Инвентаризационная опись основных средств","INV","","основные средства ос опись","",1],
+["aho","Списать инструмент, разукомплектовать","RAZUKOMPL","","списание инструмент разукомплектация","",1],
+["aho","Заявка на склад","SKIAD","","склад получить выдать материал","Уточнить у владельца: для каких заявок на склад этот процесс.",0],
+["aho","Объекты компании: реестр","REESTROBEK","","объект здание реестр","",1],
+
+["money","Оплатить счёт поставщика или подрядчика","PLATEZ","Модуль «Оплата счёта»","оплата счет платеж оплатить поставщик подрядчик","",1],
+["money","Счета главного инженера, строительство и ремонт","PLATEZ","Модуль «Счета главного инженера и строительство»","стройка строительство реконструкция ремонтно-строительные проектные работы оборудование поставка","",1],
+["money","Оплатить перевозку: авто, сборные грузы, РЖД","PLATEZ","Модуль «Оплата транспортных услуг»","транспорт доставка перевозка ржд машина грузы логистика","",1],
+["money","Оплатить услуги самозанятого","PLATEZ","Модуль «Оплата услуг самозанятого»","самозанятый исполнитель физлицо","Подать может любой сотрудник.",1],
+["money","Получить наличные","PLATEZ","Модуль «Выдача наличных средств»","наличные подотчет деньги аванс командировка","",1],
+["money","Вернуть деньги клиенту","PLATEZ","Модуль «Возврат средств»","возврат средств деньги клиенту переплата","Подают коммерческий отдел, начальник тендерного отдела, главный бухгалтер.",1],
+["money","Для бухгалтерии: налоги, зарплата, аренда, связь, исполнительные листы, запрос средств в банке","PLATEZ","Модуль по виду платежа","налог зарплата аренда интернет почта телефон связь исполнительный лист банк","",1],
+["money","Для снабжения: оплата счёта","PLATEZ","Модуль «Оплата счёта для снабжения»","снабжение закупка счет","",1],
+["money","Планирование платежей","PLANIROVAN","","план платежей пфо бюджет","",0],
+["money","Реестр платежей","VKOA","","реестр платежей","",0],
+["money","Согласовать бюджет","IXMM","","бюджет согласование смета","",1],
+
+["time","Отпуск","OTPYSK","","отпуск отпуска отдых","",1],
+["time","Отгул за ранее отработанное время","OTGUL","","отгул выходной за переработку","",1],
+["time","Работать удалённо","UDAL","","удаленка удаленно из дома дистанционно","",1],
+["time","Сверхурочная работа, работа в выходной или праздник","WORK","","переработка сверхурочно выходной праздник суббота воскресенье","",1],
+["time","Внеурочный выход","VIHOD","","выход вне графика","Уточнить у владельца: чем отличается от «Сверхурочных работ».",0],
+["time","Работа во время отпуска","DPMW","","отзыв из отпуска работа в отпуске","",1],
+["time","Изменить график работы","GRAFIK","","график смена режим работы","",1],
+["time","Оформить простой","PROSTOY","","простой остановка нет работы","",1],
+["time","Совмещение: замещаю коллегу на отпуске, больничном или вакансии","LOIM","","совмещение замещение подмена больничный","",1],
+
+["staff","Нужен новый сотрудник","VAKANT","","вакансия подбор найм нанять кандидат","",1],
+["staff","Обучение сотрудников","OBUCHENIYE","","обучение курс тренинг повышение квалификации семинар","",1],
+["staff","Обратная связь по адаптации новичка","ADAPTSOTR","","адаптация новичок испытательный","",1],
+["staff","Временно перевести сотрудника","VREMPER","","перевод временный","",1],
+["staff","Должностная инструкция или функционал","FUNKZOBIAZ","","должностная инструкция обязанности функционал","",1],
+["staff","Повысить разряд или категорию","GCNS","","разряд категория повышение","",1],
+["staff","Изменить штатное расписание или ФОТ","FOTISH","","штатное расписание шр фот ставка","",1],
+["staff","Договор ГПХ с физлицом","FNDI","","гпх договор подряда физлицо","",1],
+["staff","Доплата за наставничество","BAJT","","наставник наставничество доплата","",1],
+["staff","Премии и бонусы: ДП, продакт-менеджеры, выставки","VBPY","","премия бонус","",1],
+["staff","Премиальное положение","PREMPOL","","положение о премировании","",0],
+["staff","КПЭ производственных подразделений","PIVM","","кпэ kpi показатели","",0],
+["staff","Сведения по зарплате","TJEK","","зарплата з/п сведения","Уточнить у владельца: кто подаёт и зачем.",0],
+["staff","Справочник сотрудников","SPRAVKA","","контакты телефон сотрудника справочник","",0],
+["staff","Статистика уволенных сотрудников","OTSROCHKA","","увольнение уволился причины","В wiki два процесса с этим названием (коды OTSROCHKA и YZKS). Нужно оставить один.",1],
+
+["sales","Узнать стоимость материалов для клиента или конкурса","MATERIAL","","цена стоимость материал снабжение конкурс тендер клиент комплектация перепродажа","Запрос уходит в отдел снабжения.",1],
+["sales","Расчёт себестоимости","REESTRSIB","","себестоимость расчет","",0],
+["sales","Расчёт сварки геомембраны","SVGEO","","сварка геомембрана расчет","",0],
+["sales","Подготовить образцы продукции","POPR","","образцы пробник клиенту","",0],
+["sales","Входящие запросы","WCRN","","запрос входящий","Уточнить у владельца: чьи это запросы (клиентов, госорганов?).",0],
+
+["prod","Контроль производства","KONTROL","","контроль производства","",0],
+["prod","Производственные отчёты","PROIZVOD","","отчет производство","",0],
+["prod","Суточная выработка","SMENNYI","","выработка смена сутки","",0],
+["prod","OEE — эффективность оборудования","OEE","","oee оее эффективность оборудования","",0],
+["prod","Нормирование труда","TQVW","","норма нормирование","",1],
+["prod","Формуляры ППШИ","FORMPPSHI","","ппши формуляр","",0],
+["prod","Отчётность","OTCSHET","","отчетность отчет","Уточнить у владельца: какая отчётность.",0],
+
+["quality","Оформить брак","IDDF","","брак дефект несоответствие","",0],
+["quality","Акт по качеству","AKTKACHEST","","качество акт отк","",0],
+["quality","Разрешение на отклонение","PNO","","отклонение допуск несоответствие","",0],
+["quality","Апробация нового сырья","GCLT","","сырье апробация новое сырье","",0],
+["quality","Испытания образцов НСМ","ISP","","испытания нсм образцы лаборатория","",0],
+["quality","Упрощённая программа испытаний","LAB","","испытания программа лаборатория","",0],
+["quality","Программа стендовых испытаний","PSI","","стендовые испытания стенд","",0],
+["quality","Разработать или изменить НД: ТУ, СТО, инструкции","NORMOTIVDC","","нд ту сто норматив документация стандарт","",0],
+["quality","Создать или изменить формуляр","FORMULAR","","формуляр","",0],
+["quality","Стандартизация","UPBK","","стандарт стандартизация","",0],
+
+["safety","Замечание по охране труда и технике безопасности","MUCA","","охрана труда от тб нарушение опасно травма","",1],
+["safety","Культура производства","KULTURA","","порядок 5s чистота","",0],
+["safety","Повестка «Безопасность»","PHDZ","","безопасность повестка","",0],
+
+["legal","Задача юристу","URTASK","","юрист договор консультация правовой","",0],
+["legal","Согласовать документ","SOGLDOC","","согласование договор приказ документ подпись","",0],
+["legal","Пришла претензия","PZ","","претензия жалоба клиента рекламация","",0],
+["legal","Направить претензию контрагенту","CSO","","претензия поставщику исходящая","",0],
+["legal","Контрольно-ревизионная проверка","CSAG","","ревизия проверка аудит","",1],
+
+["dev","Идея или предложение по улучшению","IDEI","","идея предложение улучшение","Идеи не пишут служебной запиской.",1],
+["dev","Рацпредложение","PHLJ","","рац рацпредложение","Премия за рацпредложение оформляется отдельно — «Премия за рацпредложение».",0],
+["dev","Премия за рацпредложение","GKXS","","рац премия","",1],
+["dev","Новый бизнес-процесс в Неакторе","PROCESSES","","процесс автоматизация бизнес-процесс новый регламент","Доработку существующего процесса — через IT-заявку (тип «Доработка\\Изменение процесса в Неакторе»). Уточнить границу с IT.",1],
+["dev","Запустить проект","INPRO","","проект инициирование идея проекта","",0],
+["dev","Согласовать паспорт проекта","SOGLPASP","","паспорт проекта","",1],
+["dev","Согласовать ТЭО","SOGLTEO","","тэо технико-экономическое обоснование расчет эффективности","ТЭО не подают IT-заявкой.",1],
+["dev","Реестр проектов","REESTRPRO","","проекты реестр","",0],
+["dev","Инвестпроекты","INVEST","","инвестиции инвестпроект","",0],
+["dev","Программа развития","OYEF","","развитие программа","",0],
+["dev","SMART-задачи","SUSE","","smart цели задачи","",0],
+["dev","Внедрение ЕРП","ERP","","ерп erp внедрение","",0]
+];
+const POPULAR=["отпуск","сломался принтер","доступ к папке","оплатить счёт","макет","ремонт","удалёнка","идея"];
+
+
+/* ---------- поиск ---------- */
+const norm=s=>s.toLowerCase().replace(/ё/g,"е").replace(/[«»"().,;:!?\\/]/g," ");
+const words=s=>norm(s).split(/[\s\-]+/).filter(w=>w.length>1);
+const stem=w=>w.length>=6?w.slice(0,w.length-2):w.length>=4?w.slice(0,w.length-1):w;
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const IDX=S.map((s,i)=>({i,t:words(s[1]),k:words(s[4]+" "+s[3]),p:words(P[s[2]][0])}));
+function score(q){
+  const qs=words(q).map(stem); if(!qs.length) return [];
+  const res=[];
+  for(const d of IDX){
+    let sc=0,hit=0;
+    for(const st of qs){
+      const inT=d.t.some(w=>w.startsWith(st)), inK=d.k.some(w=>w.startsWith(st)), inP=d.p.some(w=>w.startsWith(st));
+      if(inT||inK||inP){hit++; sc+=(inT?3:0)+(inK?2:0)+(inP?2:0);}
+    }
+    if(hit && hit>=Math.ceil(qs.length/2)) res.push([d.i,sc+hit*4]);
+  }
+  return res.sort((a,b)=>b[1]-a[1]).map(r=>r[0]);
+}
+function hl(text,q){
+  if(!q) return esc(text);
+  const qs=words(q).map(stem);
+  return text.split(/(\s+)/).map(tok=>{const n=norm(tok).trim(); return n && qs.some(s=>n.startsWith(s))?"<mark>"+esc(tok)+"</mark>":esc(tok)}).join("");
+}
+const catName=id=>CATS.find(c=>c[0]===id)[1];
+function row(i,q){
+  const s=S[i], p=P[s[2]];
+  const link=BASE+"/projects/"+s[2]+"/filters/all", wiki=BASE+"/wiki/18/"+p[1];
+  return `<tr class="${s[6]?"":"unverified"}">
+    <td class="sit">${hl(s[1],q)}${q?`<span class="hint" style="display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:2px">${esc(catName(s[0]))}</span>`:""}<span class="flag">проверить</span></td>
+    <td class="dest"><a href="${link}" target="_blank" rel="noopener">${esc(p[0])}</a>${s[5]?`<span class="hint">${esc(s[5])}</span>`:""}</td>
+    <td class="pick">${s[3]?`<span>${esc(s[3])}</span>`:""}</td>
+    <td class="code"><a href="${wiki}" target="_blank" rel="noopener" title="Статья в wiki">${s[2]}</a></td>
+  </tr>`;
+}
+const $=id=>document.getElementById(id);
+let cat=null;
+function render(){
+  const q=$("q").value.trim(); $("clear").hidden=!q;
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",norm(c.textContent)===norm(q)));
+  document.querySelectorAll("#cats button").forEach(b=>b.classList.toggle("on",!q&&b.dataset.c===(cat||"all")));
+  let html="", n=0;
+  if(q){
+    const r=score(q); n=r.length;
+    html=r.length?r.slice(0,40).map(i=>row(i,q)).join(""):`<tr><td colspan="4" class="empty">По запросу «${esc(q)}» ничего не нашлось. Попробуйте другое слово или посмотрите <a href="#fallback">что делать</a>.</td></tr>`;
+  }else{
+    const cs=cat?CATS.filter(c=>c[0]===cat):CATS;
+    html=cs.map(c=>{const rows=S.map((s,i)=>s[0]===c[0]?row(i,""):"").join(""); n+=S.filter(s=>s[0]===c[0]).length; return `<tr class="grp"><td colspan="4">${esc(c[1])}</td></tr>`+rows;}).join("");
+  }
+  $("total").textContent=n;
+  $("out").innerHTML=html;
+}
+$("cats").innerHTML=`<li><button data-c="all" type="button"><span>Все темы</span><span class="n">${S.length}</span></button></li>`+
+  CATS.map(c=>`<li><button data-c="${c[0]}" type="button"><span>${esc(c[1])}</span><span class="n">${S.filter(s=>s[0]===c[0]).length}</span></button></li>`).join("");
+$("cats").addEventListener("click",e=>{const b=e.target.closest("button"); if(!b) return; cat=b.dataset.c==="all"?null:b.dataset.c; $("q").value=""; render(); window.scrollTo({top:0});});
+$("chips").insertAdjacentHTML("beforeend",POPULAR.map(p=>`<button class="chip" type="button">${esc(p)}</button>`).join(""));
+$("chips").addEventListener("click",e=>{const b=e.target.closest(".chip"); if(!b) return; $("q").value=b.textContent; cat=null; render();});
+$("q").addEventListener("input",()=>{cat=null; render();});
+$("clear").addEventListener("click",()=>{$("q").value=""; render(); $("q").focus();});
+/* Режим проверки для владельцев процессов: открыть страницу с #review */
+if(location.hash==="#review") document.body.classList.add("review");
+render();
+</script>
+</body>
+</html>
