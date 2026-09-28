@@ -100,6 +100,19 @@ mark{background:var(--mark);color:inherit;padding:0}
 .steps{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;font-size:12px;color:var(--muted)}
 .steps b{color:var(--ink);font-weight:600}
 
+dialog#help{width:min(480px,calc(100% - 32px));padding:0;border:1px solid var(--line);border-radius:3px;color:var(--ink);background:#fff;box-shadow:0 8px 30px rgba(39,43,53,.25)}
+dialog#help::backdrop{background:rgba(39,43,53,.45)}
+.dlg-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--head)}
+.dlg-head h2{margin:0;font-size:16px;font-weight:600}
+.dlg-x{border:0;background:transparent;font-size:22px;line-height:1;color:#9AA0AA;cursor:pointer;padding:0 4px}
+.dlg-x:hover{color:var(--ink)}
+.dlg-body{padding:16px 18px;font-size:14px}
+.dlg-body p{margin:0 0 10px}
+.dlg-body ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.pick-inline{background:#EEF4FB;padding:1px 4px;border-radius:2px}
+.dlg-foot{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px 16px}
+.btn-grey{height:30px;padding:0 12px;border:1px solid var(--line);border-radius:3px;background:var(--head);font:14px "Open Sans",Arial,sans-serif;color:var(--ink);cursor:pointer}
+.btn-grey:hover{border-color:#C9CED6}
 @media (max-width:860px){
   .layout{grid-template-columns:minmax(0,1fr)}
   aside,main{min-width:0}
@@ -137,14 +150,14 @@ mark{background:var(--mark);color:inherit;padding:0}
     <a class="back" href="https://neaktor.pskgeodor.ru/home">‹ Вернуться в Неактор</a>
     <h4>Темы</h4>
     <ul id="cats"></ul>
-    <div class="note">Не нашли тему — <a href="#fallback">что делать</a></div>
+    <div class="note">Не нашли тему — <a href="#help" data-help>спросите IT</a></div>
   </aside>
 
   <main>
     <div class="head">
       <div class="tile" aria-hidden="true">?</div>
       <h1>Куда завести задачу <span>(путеводитель)</span></h1>
-      <a class="btn" href="#fallback">Не нашли тему</a>
+      <button class="btn" type="button" data-help>Не нашли тему</button>
     </div>
     <p class="sub">Опишите своими словами, что нужно сделать. Напротив ситуации указан блок Неактора и значение, которое нужно выбрать в форме.</p>
     <hr class="sep">
@@ -168,16 +181,27 @@ mark{background:var(--mark);color:inherit;padding:0}
 
     <div class="fallback" id="fallback">
       <h3>Не нашли свою тему?</h3>
-      <p>Попробуйте другое слово: «ремонт» вместо «сломалась дверь», «доступ» вместо «не пускает». Если подходящего процесса действительно нет:</p>
-      <ol>
-        <li>Предложение, как сделать лучше, — в <a href="https://neaktor.pskgeodor.ru/projects/IDEI/filters/all" target="_blank" rel="noopener">Идеи и предложения</a>.</li>
-        <li>Разовый вопрос без своего процесса — <a href="https://neaktor.pskgeodor.ru/projects/JLTR/filters/all" target="_blank" rel="noopener">служебной запиской</a>. Если тема есть в списке выше, служебку вернут.</li>
-        <li>Такие вопросы повторяются — подайте <a href="https://neaktor.pskgeodor.ru/projects/PROCESSES/filters/all" target="_blank" rel="noopener">заявку на создание бизнес-процесса</a>.</li>
-      </ol>
+      <p>Напишите вопрос в поддержку IT — там всегда подскажут, куда завести задачу. <a href="#help" data-help>Как написать</a></p>
     </div>
     <div class="steps"><span><b>1.</b> Найдите ситуацию</span><span><b>2.</b> Откройте блок и нажмите «Добавить задачу»</span><span><b>3.</b> Выберите в форме указанное значение</span></div>
   </main>
 </div>
+
+<dialog id="help" aria-labelledby="help-title">
+  <div class="dlg-head"><h2 id="help-title">Не нашли тему?</h2><button type="button" class="dlg-x" data-close aria-label="Закрыть">×</button></div>
+  <div class="dlg-body">
+    <p>Напишите вопрос в поддержку IT — там всегда подскажут, куда завести задачу.</p>
+    <ol>
+      <li>Откройте «Заявки в IT отдел» и нажмите «Добавить задачу».</li>
+      <li>В поле «Тип задачи» выберите <span class="pick-inline">Другое</span>.</li>
+      <li>В теме напишите, что вам нужно сделать, своими словами.</li>
+    </ol>
+  </div>
+  <div class="dlg-foot">
+    <a class="btn" href="https://neaktor.pskgeodor.ru/projects/AKNG/filters/all" target="_blank" rel="noopener">Открыть «Заявки в IT отдел»</a>
+    <button type="button" class="btn-grey" data-close>Закрыть</button>
+  </div>
+</dialog>
 
 <script>
 
@@ -379,7 +403,7 @@ function render(){
   let html="", n=0;
   if(q){
     const r=score(q); n=r.length;
-    html=r.length?r.slice(0,40).map(i=>row(i,q)).join(""):`<tr><td colspan="4" class="empty">По запросу «${esc(q)}» ничего не нашлось. Попробуйте другое слово или посмотрите <a href="#fallback">что делать</a>.</td></tr>`;
+    html=r.length?r.slice(0,40).map(i=>row(i,q)).join(""):`<tr><td colspan="4" class="empty">По запросу «${esc(q)}» ничего не нашлось. Попробуйте другое слово или <a href="#help" data-help>спросите IT</a>.</td></tr>`;
   }else{
     const cs=cat?CATS.filter(c=>c[0]===cat):CATS;
     html=cs.map(c=>{const rows=S.map((s,i)=>s[0]===c[0]?row(i,""):"").join(""); n+=S.filter(s=>s[0]===c[0]).length; return `<tr class="grp"><td colspan="4">${esc(c[1])}</td></tr>`+rows;}).join("");
@@ -394,6 +418,12 @@ $("chips").insertAdjacentHTML("beforeend",POPULAR.map(p=>`<button class="chip" t
 $("chips").addEventListener("click",e=>{const b=e.target.closest(".chip"); if(!b) return; $("q").value=b.textContent; cat=null; render();});
 $("q").addEventListener("input",()=>{cat=null; render();});
 $("clear").addEventListener("click",()=>{$("q").value=""; render(); $("q").focus();});
+/* Окно «Не нашли тему» */
+const dlg=$("help");
+document.addEventListener("click",e=>{
+  if(e.target.closest("[data-help]")){e.preventDefault(); dlg.showModal?dlg.showModal():dlg.setAttribute("open","");}
+  else if(e.target.closest("[data-close]")||e.target===dlg){dlg.close?dlg.close():dlg.removeAttribute("open");}
+});
 /* Режим проверки для владельцев процессов: открыть страницу с #review */
 if(location.hash==="#review") document.body.classList.add("review");
 render();
